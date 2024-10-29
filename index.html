@@ -1,63 +1,104 @@
 <!DOCTYPE html>
-<html>
-	<head>
-        <meta charset="utf-8">
-        <title>Everything is connected - Wikidata Game by Denny Vrandecic</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.0.6/pico.blue.min.css" integrity="sha512-usl0koFgYs4qmxyOYqsPjt5/fQyZ9bqkHKCjWH6hToVBzsAUFdb2uYmO79W/iQBAVz+CclwOwYL4orVlubou8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.0.6/pico.fluid.classless.blue.min.css" integrity="sha512-fu0bhYj/KVe1ewxAuYtnmjBBHLLpQ8kZ48BUxo3r3fYP1BwUjGvJeumEql937rUGVqdExnOclzC1opjYjnAKtA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="main.css">
-</head>
-    <body>
-        <!-- Header -->
-    <header class="container">
-      <hgroup>
-        <h1>Everything is connected</h1>
-        <p>A Wikidata Game by Denny Vrandecic.</p>
-        <nav>
-        <ul>
-          <li><a href="#" data-theme-switcher="auto">Auto</a></li>
-          <li><a href="#" data-theme-switcher="light">Light</a></li>
-          <li><a href="#" data-theme-switcher="dark">Dark</a></li>
-        </ul>
-      </nav>
-      </hgroup>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Everything is connected • Wikidata Game by Denny Vrandecic</title>
+    <meta name="description" content="A Wikidata Game by Denny Vrandecic. Play by connecting cards." />
+
+    <!-- Pico.css -->
+    <link
+      rel="stylesheet"
+      href="third_party/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a aria-label="Pico CSS homepage" data-discover="true" href="/">
+                <h1>Everything is connected</h1>
+            </a>
+            <nav>
+                <ul>
+                    <li class="hide-before-sm">
+                        <a aria-current="page" class="contrast" data-discover="true" href="/">
+                            Game
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contrast" data-discover="true" href="about.html">
+                            About
+                        </a>
+                    </li>
+                    </ul>
+                    <ul class="icons">
+                        <li>
+                            <a rel="noopener noreferrer" class="contrast" aria-label="GitHub repository" href="https://github.com/picocss/pico" target="_blank">
+                                Git
+                            </a>
+                        </li>
+                        <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                        <li><a href="#" data-theme-switcher="light">Light</a></li>
+                        <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+                    </ul>
+                </nav>
+            </div>
     </header>
     <!-- ./ Header -->
+
     <!-- Main -->
     <main class="container">
-    <section id="mainhead">
+      <!-- Preview -->
+      <section id="preview">
         <h2>The Play Board</h2>
-			<div>
-				<p>
-					Arrange the boxes in the board to finish the game.
-				</p>
-				<fieldset>
-					<label>
-						<input name="articleswitch" type="checkbox" id="articleSwitch" role="switch" />
-						Show Wikipedia Article
-					</label>
-				</fieldset>
-			</div>
-	</section>
-	<section id="mainboard">
-	<div class="grid">
-		<div>
+        <p>
+          Arrange the boxes in the board to finish the game.
+        </p>
+        <form>
+          <fieldset>
+            <label for="terms">
+              <input type="checkbox" role="switch" id="articleSwitch" name="articleswitch" />
+              Show Wikipedia Article
+            </label>
+          </fieldset>
+        </form>
+      </section>
+      <!-- ./ Preview -->
+      <!-- Typography-->
+      <section id="gameboard">
         <div id="board"></div>
-        </div>
-        <div>
-				<article id="article"></article>
-		</div>
-	</div>
-	</section>
-	</main>
-		<a href="about.html" target="_blank" id="help">[help]</a>
-		<p id="imageSources">[image sources]</p>
-		<p id="imageSourcesList"></p>
-		<img src="third_party/poweredByWikidata.png" id="wikidatalogo">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.0/jquery-ui.min.js"></script>
-		<script src="third_party/jquery.ui.touch-punch.min.js"></script>
-		<script src="third_party/minimal-theme-switcher.js"></script>
+      </section>
+      <section id="articlesection">
+        <article id="article"></article>
+      </section>
+      <section>
+
+        <div id="imageSourcesList"></div>
+      </section>
+    </main>
+    <!-- ./ Main -->
+
+    <!-- Footer -->
+    <footer class="container">
+    <p id="imageSources">[view image sources]</p>
+    <img src="third_party/images/poweredByWikidata.png" id="wikidatalogo">
+      <small
+        >Built with <a href="https://picocss.com">Pico</a> •
+        <a href="https://github.com/picocss/examples/blob/master/v2-html/index.html"
+          >Source code</a
+        ></small
+      >
+    </footer>
+    <!-- ./ Footer -->
+        <script src="third_party/js/jquery.min.js"></script>
+		<script src="third_party/js/jquery-ui.min.js"></script>
+		<script src="third_party/js/jquery.ui.touch-punch.min.js"></script>
         <script src="main.js"></script>
-    </body>
+    <!-- Minimal theme switcher -->
+    <script src="third_party/js/minimal-theme-switcher.js"></script>
+</body>
 </html>
