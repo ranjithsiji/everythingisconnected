@@ -105,7 +105,7 @@ var createBoard = function(lang, board) {
 	// end of the code that has the weird layouting stuff in it.
 	
 	var kb = {};
-	
+	$(function() {
 	$( ".side" ).draggable({
 		start: function(event, ui) {
 			if (!finished) return;
@@ -118,6 +118,7 @@ var createBoard = function(lang, board) {
 			}
 			checkBoard(board, lang, kb);
 		}
+	});
 	});
 	$( ".field" ).droppable({
 		accept: ".side",

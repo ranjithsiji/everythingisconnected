@@ -16,7 +16,6 @@
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #FAF9F4;
 	color: #564A37;
 }
 a {
@@ -25,8 +24,6 @@ a {
 #board {
 	height: 100px;
 	width: 100px;
-	top: 80px;
-	left: 10px;
 	background: #BAB9B4;
 	position: absolute;
 }
@@ -35,6 +32,8 @@ a {
 	height: 80px;
 	padding: 5px;
 	position: absolute;
+	background:#fff;
+	border:1px solid #333;
 }
 .tile span {
 	background-color: rgba(255, 255, 255, 0.7);
@@ -91,11 +90,6 @@ table, td {
 	position: fixed;
 	bottom: 0px;
 	right: 120px;
-}
-#displayArticle {
-	position: fixed;
-	top: 10px;
-	right: 100px;
 }
 .buttonText {
 	vertical-align: top;
@@ -155,8 +149,11 @@ input:checked + .slider:before {
 	display: none;
 }
 #article {
-	position: absolute;
-	max-width: 450px;
+	max-width: 250px;
     z-index: -100;
 	display: none;
+	position:absolute;
+	right:0px;
+	font-size:0.9em !important;
+	line-height:1;
 }
