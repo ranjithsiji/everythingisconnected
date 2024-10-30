@@ -128,7 +128,7 @@
         $("#article").css({ top: (articletop + 1.5) * fieldSize + topSpace });
       }
       $.each(board.deck, function (index, qid) {
-        $("#board").append(
+        $("#deck").append(
           '<div id="' +
             qid +
             '" class="ui-widget-content tile side"><span>' +
@@ -596,7 +596,7 @@
             }
           }
       if (allSet && allFit) {
-        $("#gameTitle")
+        $("#gameForm")
           .after(
             '<p style="margin-top:-1em;">See [<a href="https://www.wikidata.org/wiki/Wikidata:Everything_is_connected">List of levels</a>]</p>',
           )

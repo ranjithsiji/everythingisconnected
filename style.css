@@ -40,6 +40,11 @@ a {
   height: 600px;
   width: 400px;
   background: #bab9b4;
+  border:1px solid #ccc;
+  border-radius: 5px;
+  position: absolute;
+}
+#deck {
   position: absolute;
 }
 #article {
@@ -58,7 +63,8 @@ a {
   position: absolute;
   background: #fff;
   background-size: cover;
-  border: 1px solid #333;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 .tile span {
   background-color: #333333d6;
@@ -81,6 +87,8 @@ a {
   position: absolute;
   text-align: center;
   cursor: default;
+  border-radius: 5px;
+  z-index: 1000;
 }
 .nofit {
   background-color: #ff8888;
