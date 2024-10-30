@@ -596,11 +596,9 @@
             }
           }
       if (allSet && allFit) {
-        $("#gameForm")
-          .after(
-            '<p style="margin-top:-1em;">See [<a href="https://www.wikidata.org/wiki/Wikidata:Everything_is_connected">List of levels</a>]</p>',
-          )
-          .after('<p id="greenText">Congratulations! the puzzle is solved</p>');
+        $("#gameMessage").html("");
+        $("#gameMessage")
+          .append('<p id="greenText">Congratulations! the puzzle is solved</p>');
       }
     };
     var solvableBoard = function (board, kb) {
@@ -649,4 +647,22 @@
       }
     });
   });
+  //Open Popup box to show levels
+  $('#openPopup').on('click', function() {
+    const url = 'https://www.wikidata.org/w/api.php?action=parse&page=Wikidata:Everything_is_connected&format=json&origin=*';
+
+    $.getJSON(url, function(data) {
+        // Extract the main content from the API response
+        const content = data.parse.text['*']; // Get the HTML content
+        $('#content').html(content);
+        $('#popupBox').css({display: 'flex', height: Math.floor($(window).height())});
+    }).fail(function() {
+        $('#content').html('<p>Error loading content.</p>');
+        $('#popupBox').css('display', 'flex');
+    });
+});
+
+$('#closePopup').on('click', function() {
+    $('#popupBox').css('display', 'none');
+});
 })(jQuery);

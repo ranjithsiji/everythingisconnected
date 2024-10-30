@@ -25,18 +25,18 @@
         <nav>
           <ul>
             <li class="hide-before-sm">
-              <a
-                aria-current="page"
-                class="contrast"
-                data-discover="true"
-                href="/"
-              >
+              <a aria-current="page" class="contrast" data-discover="true" href="/" >
                 Game
               </a>
             </li>
             <li>
               <a class="contrast" data-discover="true" href="about.html">
                 About
+              </a>
+            </li>
+            <li>
+              <a class="contrast" data-discover="true" target="_blank" href="https://www.wikidata.org/wiki/Wikidata:Everything_is_connected" title="Wikidata Page about Game">
+                Wikidata
               </a>
             </li>
           </ul>
@@ -46,7 +46,7 @@
                 rel="noopener noreferrer"
                 class="contrast"
                 aria-label="GitHub repository"
-                href="https://github.com/picocss/pico"
+                href="https://github.com/ranjithsiji/everythingisconnected"
                 target="_blank"
               >
                 Git
@@ -67,12 +67,10 @@
       </div>
     </header>
     <!-- ./ Header -->
-
     <!-- Main -->
     <main class="container">
       <!-- Preview -->
       <section id="preview">
-        <h2 id="gameTitle">The Play Board</h2>
         <p>Arrange the boxes in the board to finish the game.</p>
         <form id="gameForm">
           <fieldset>
@@ -87,6 +85,7 @@
             </label>
           </fieldset>
         </form>
+        <div id="gameMessage"></div>
       </section>
       <!-- ./ Preview -->
       <!-- Typography-->
@@ -102,18 +101,26 @@
       </section>
     </main>
     <!-- ./ Main -->
-
+    <div class="popupbox" id="popupBox">
+      <div class="popupbox-content">
+          <span class="close" id="closePopup">&times;</span>
+          <div id="content"></div>
+      </div>
+  </div>
     <!-- Footer -->
     <footer class="container">
-      <p id="imageSources">[view image sources]</p>
-      <img src="third_party/images/poweredByWikidata.png" id="wikidatalogo" />
-      <small
-        >Built with <a href="https://picocss.com">Pico</a> •
-        <a
-          href="https://github.com/picocss/examples/blob/master/v2-html/index.html"
-          >Source code</a
-        ></small
-      >
+      <p>
+       <button class="contrast" id="imageSources">[view image sources]</button>
+      </p>
+       <button class="primary" id="openPopup">[View More Levels of the Game]</button>
+        
+        <hr/>
+      <p>
+        <img src="third_party/images/poweredByWikidata.png" id="wikidatalogo" />
+        <small>Built with <a href="https://jquery.com">jQuery</a> • <a href="https://jqueryui.com">jQuery UI</a> • <a href="https://picocss.com">Pico</a> •
+          <a href="https://github.com/ranjithsiji/everythingisconnected">Source code</a> forked from <a href="https://github.com/google/everythingisconnected">Original Source code created by Denny Vrandečić</a>
+        </small>
+      </p>
     </footer>
     <!-- ./ Footer -->
     <script src="third_party/js/jquery.min.js"></script>
