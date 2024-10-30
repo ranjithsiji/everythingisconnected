@@ -46,6 +46,7 @@ a {
   display: none;
   min-height: 320px;
   cursor: grab;
+  border: 1px solid #ccc;
 }
 #imageSourcesList {
   display: none;
