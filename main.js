@@ -20,12 +20,13 @@
   */
 
 evil = {}; // just a global for debugging reasons, should not be used in code
-
-var fieldSize = 100;
-var topSpace = 5;
-var leftSpace = 5;
-var wiggleSpace = 20;
+console.log(Math.floor($(window).width()));
+var fieldSize = 130; //Size of each field
+var topSpace = 8;
+var leftSpace = 9;
+var wiggleSpace = 15;
 var finished = false;
+var windowWidth = Math.floor($(window).width());
 
 var shuffle = function(array) {
   // Knuth shuffle algorithm
@@ -58,7 +59,12 @@ var createBoard = function(lang, board) {
 		});
 	});
 	$("#board").width(board.maxWidth*fieldSize + 5);
+	// console.log(board.maxWidth);
+	// console.log(fieldSize);
+	// console.log(board.maxWidth*fieldSize + 5);
+	// console.log(board.maxHeight*fieldSize + 5);
 	$("#board").height(board.maxHeight*fieldSize + 5);
+	$("#gameboard").height(board.maxHeight*fieldSize*2 + 5)
 	
 	shuffle(board.deck);
 	
@@ -212,6 +218,7 @@ var initBoard = function() {
 	}
 	if (boardParam==null) {
 		// default starting board
+		console.log("Start with default board: ");
 		boardParam = 'Q7186+Q1622272Q60025/Q5Q9438Q868/Q1067Q40185Q8409+';
 	}
 	var board = {};
@@ -457,7 +464,7 @@ var checkBoard = function(board, language, kb) {
 				}
 			}
 	if (allSet && allFit) {
-		$('h1').text('Congratulations!').after('<p style="margin-top:-1em;">[<a href="https://www.wikidata.org/wiki/Wikidata:Everything_is_connected">List of levels</a>]</p>');
+		$('#gameTitle').after('<p style="margin-top:-1em;">See [<a href="https://www.wikidata.org/wiki/Wikidata:Everything_is_connected">List of levels</a>]</p>').after('<p id="greenText">Congratulations! the puzzle is solved</p>');
 	}
 };
 var solvableBoard = function(board, kb) {
@@ -478,12 +485,22 @@ var solvableBoard = function(board, kb) {
 					}
 			}
 	if (!allFit) {
-		$('body').css('background-color', '#fdd');
-		$('h1').after('<p style="margin-top:-1em;">Warning! This level might be unsolvable <a href="about.html#unsolvable">[see more]</a></p>');
+		$('body').css('background-color', '#ff8888');
+		$('#gameTitle').after('<p id="warn">Warning! This level might be unsolvable <a href="about.html#unsolvable">[see more]</a></p>');
 	}
 };
 createBoard(initLanguage(), initBoard());
 
 $('#imageSources').click(function() { $('#imageSourcesList').toggle(); });
-$('#articleSwitch').click(function() { $('#article').toggle(); });
+$('#articleSwitch').click(function() {
+	$('#article').toggle();
+	if (windowWidth>850)
+	{
+		var wpos=windowWidth-350;
+		$('#article').css ({'position':'absolute', 'left':wpos+'px', 'width':'350px','top':'350px'});
+		$('#article').draggable();
+	}
+});
+
+
 });}(jQuery));
