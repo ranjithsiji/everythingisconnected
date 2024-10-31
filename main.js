@@ -195,8 +195,8 @@
           $("#article").html(articles[id]);
         }
       };
-      $(".fixed").mouseenter(displayArticle);
-      $(".side").mouseenter(displayArticle);
+      $(".fixed").click(displayArticle);
+      $(".side").click(displayArticle);
     };
     var loadExtracts = function (toLoad, qids, lang, articles) {
       var loadNow = toLoad.slice(0, 16);
